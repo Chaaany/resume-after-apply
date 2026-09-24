@@ -64,13 +64,17 @@
                 </div>
               </fieldset>
             </form>
+            <div id="result-shortcut" class="result-shortcut" hidden>
+              <span>선택 결과가 준비됐어요</span>
+              <button id="view-result" type="button" aria-controls="result-content">결과 보기 <span aria-hidden="true">↓</span></button>
+            </div>
             <p class="privacy-note">이력서 내용·사진·연락처를 입력하지 않습니다. 선택도 저장하지 않습니다.</p>
           </section>
 
           <section class="answer-panel" aria-labelledby="answer-heading">
             <div class="answer-header">
               <p class="section-label">선택 결과</p>
-              <h2 id="answer-heading">이전 지원에 반영되는 범위</h2>
+              <h2 id="answer-heading" tabindex="-1">이전 지원에 반영되는 범위</h2>
             </div>
             <div id="result-content" class="result-content" aria-live="polite" aria-atomic="true"></div>
             <noscript><p class="noscript-note">결과를 보려면 브라우저에서 JavaScript를 켜주세요. 아래 공식 FAQ에서는 바로 내용을 확인할 수 있습니다.</p></noscript>

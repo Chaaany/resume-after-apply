@@ -4,8 +4,10 @@
 
 [웹에서 사용하기](https://chaaany.github.io/resume-after-apply/) · [알바몬 공식 지원 FAQ](https://www.albamon.com/service-center/faq?pageIndex=1&pageRowSize=20&searchKeyword=&faqMemberType=PERSONAL&categoryNo=4)
 
+[선택적으로 의견 남기기](https://github.com/Chaaany/resume-after-apply/issues/1): GitHub 로그인·공개 댓글이 필요합니다. 서비스 사용에는 필요하지 않습니다.
+
 이 화면은 이력서 본문, 프로필 사진, 연락처·회원정보, 취업우대사항만 다룹니다. 다른 지원 방식과 항목은 판단하지 않습니다. 실제 지원 상태는 알바몬에서 확인하세요. 알바몬과 제휴하지 않았습니다.
 
-이력서, 사진, 연락처를 입력받지 않으며 로그인·서버·분석 스크립트·브라우저 저장소를 사용하지 않습니다. 공식 FAQ는 2026-09-24에 확인했습니다. 이 도구를 이용한 외부 고객의 결과나 수요는 아직 검증하지 않았습니다.
+이력서, 사진, 연락처를 입력받지 않으며 로그인·별도 앱 서버·분석 스크립트·브라우저 저장소를 사용하지 않습니다. 정적 파일은 GitHub Pages가 제공합니다. 공식 FAQ는 2026-09-24에 확인했습니다. 이 도구를 이용한 외부 고객의 결과나 수요는 아직 검증하지 않았습니다.
 
 규칙 검사: `node --test rules.test.mjs`
