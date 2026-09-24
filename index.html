@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'" />
+    <meta name="theme-color" content="#f6f8fb" />
+    <meta name="description" content="알바몬 지원 뒤 이력서를 고쳤다면 이전 지원에 무엇이 반영될까요? 지원 방식과 변경 항목을 선택해 공식 FAQ의 해당 설명을 확인하세요." />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="ko_KR" />
+    <meta property="og:title" content="이전 지원서에는 무엇이 남을까요?" />
+    <meta property="og:description" content="알바몬 온라인 지원 뒤 이력서 본문·사진·연락처·취업우대사항 수정 영향 안내. 공식 FAQ에 근거한 비공식 시제품입니다." />
+    <meta property="og:url" content="https://chaaany.github.io/resume-after-apply/" />
+    <meta property="og:image" content="https://chaaany.github.io/resume-after-apply/og.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="canonical" href="https://chaaany.github.io/resume-after-apply/" />
+    <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+    <title>지원 후 이력서 수정, 이전 지원엔 어떻게 보일까?</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script type="module" src="./app.mjs"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">본문으로 건너뛰기</a>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="site-name" href="./" aria-label="지원서 확인, 처음으로">지원서<span class="site-name-dot" aria-hidden="true">.</span>확인</a>
+        <span class="header-note">비공식 안내 · 2026.09.24 기준</span>
+      </header>
+
+      <main id="main">
+        <div class="intro">
+          <p class="eyebrow">지원한 다음, 이력서를 고쳤다면</p>
+          <h1>이전 지원서에는<br /><span>무엇이 남을까요?</span></h1>
+          <p class="intro-copy">알바몬에서 지원한 방식과 바꾼 항목을 골라보세요. 공식 FAQ에서 확인되는 범위만 알려드립니다.</p>
+        </div>
+
+        <div class="workspace">
+          <section class="selector-panel" aria-labelledby="selection-title">
+            <div class="section-heading">
+              <div>
+                <p class="section-label">내 상황 고르기</p>
+                <h2 id="selection-title">두 가지만 선택하세요</h2>
+              </div>
+              <button id="reset-choice" class="reset-button" type="button">처음부터</button>
+            </div>
+
+            <form id="decision-form">
+              <fieldset class="choice-group">
+                <legend><span class="question-order">1</span> 어떻게 지원했나요?</legend>
+                <div class="choice-list">
+                  <label class="choice"><input type="radio" name="method" value="online" /><span class="choice-copy"><strong>알바몬 온라인 지원</strong><small>알바몬 안에서 지원서를 제출했어요</small></span><span class="choice-indicator" aria-hidden="true"></span></label>
+                  <label class="choice"><input type="radio" name="method" value="other" /><span class="choice-copy"><strong>문자·이메일 등 다른 방식</strong><small>알바몬 온라인 지원은 아니에요</small></span><span class="choice-indicator" aria-hidden="true"></span></label>
+                </div>
+              </fieldset>
+
+              <fieldset class="choice-group choice-group--last">
+                <legend><span class="question-order">2</span> 무엇을 고쳤나요?</legend>
+                <div class="choice-list choice-list--compact">
+                  <label class="choice"><input type="radio" name="change" value="body" /><span class="choice-copy"><strong>이력서 본문</strong><small>경력·자기소개 등</small></span><span class="choice-indicator" aria-hidden="true"></span></label>
+                  <label class="choice"><input type="radio" name="change" value="photo" /><span class="choice-copy"><strong>프로필 사진</strong></span><span class="choice-indicator" aria-hidden="true"></span></label>
+                  <label class="choice"><input type="radio" name="change" value="contact" /><span class="choice-copy"><strong>연락처·회원정보</strong></span><span class="choice-indicator" aria-hidden="true"></span></label>
+                  <label class="choice"><input type="radio" name="change" value="preference" /><span class="choice-copy"><strong>취업우대사항</strong></span><span class="choice-indicator" aria-hidden="true"></span></label>
+                  <label class="choice"><input type="radio" name="change" value="other" /><span class="choice-copy"><strong>그 밖의 항목</strong></span><span class="choice-indicator" aria-hidden="true"></span></label>
+                </div>
+              </fieldset>
+            </form>
+            <p class="privacy-note">이력서 내용·사진·연락처를 입력하지 않습니다. 선택도 저장하지 않습니다.</p>
+          </section>
+
+          <section class="answer-panel" aria-labelledby="answer-heading">
+            <div class="answer-header">
+              <p class="section-label">선택 결과</p>
+              <h2 id="answer-heading">이전 지원에 반영되는 범위</h2>
+            </div>
+            <div id="result-content" class="result-content" aria-live="polite" aria-atomic="true"></div>
+            <noscript><p class="noscript-note">결과를 보려면 브라우저에서 JavaScript를 켜주세요. 아래 공식 FAQ에서는 바로 내용을 확인할 수 있습니다.</p></noscript>
+          </section>
+        </div>
+
+        <aside class="source-note" aria-labelledby="source-title">
+          <div>
+            <p class="section-label">근거와 범위</p>
+            <h2 id="source-title">알바몬 공식 안내를 확인하세요</h2>
+          </div>
+          <div class="source-detail">
+            <p>이 화면은 알바몬 공식 지원 FAQ의 ‘이력서를 수정하면 과거 기업에 지원한 이력서까지 수정되는 건가요?’ 답변을 바탕으로 2026년 9월 24일 정리했습니다. 알바몬과 제휴하지 않았으며, 개별 지원서의 실제 상태를 조회하지 않습니다.</p>
+            <p class="source-url"><a href="https://www.albamon.com/service-center/faq?pageIndex=1&amp;pageRowSize=20&amp;searchKeyword=&amp;faqMemberType=PERSONAL&amp;categoryNo=4" target="_blank" rel="noopener noreferrer">www.albamon.com/service-center/faq?pageIndex=1&amp;pageRowSize=20&amp;searchKeyword=&amp;faqMemberType=PERSONAL&amp;categoryNo=4</a></p>
+          </div>
+        </aside>
+      </main>
+
+      <footer class="site-footer"><span>지원서.확인</span><span>공식 FAQ를 더 쉽게 찾기 위한 실험형 안내</span></footer>
+    </div>
+  </body>
+</html>
