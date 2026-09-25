@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'" />
+  <meta name="theme-color" content="#f6f8fb" />
+  <meta name="description" content="공고별 이력서 문안을 복사해 고치고, 지원에 사용했다고 기록한 문안과 현재 문안을 비교하세요. 로그인 없이 이 브라우저에만 저장됩니다." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ko_KR" />
+  <meta property="og:title" content="지원할 때 쓴 문안, 그대로 남겨두세요." />
+  <meta property="og:description" content="공고별 문안 복사본과 수동 지원 기록을 만들고 현재 문안과 비교하는 시험판 도구입니다." />
+  <meta property="og:url" content="https://chaaany.github.io/resume-after-apply/versions.html" />
+  <meta property="og:image" content="https://chaaany.github.io/resume-after-apply/og-versions.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://chaaany.github.io/resume-after-apply/versions.html" />
+  <title>지원할 때 쓴 문안, 버전별로 남기기 · 지원서.확인</title>
+  <link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+  <link rel="stylesheet" href="./styles.css" />
+  <link rel="stylesheet" href="./versions.css" />
+  <script type="module" src="./versions.mjs"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">본문으로 건너뛰기</a>
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="site-name" href="./" aria-label="지원서 확인, 처음으로">지원서<span class="site-name-dot" aria-hidden="true">.</span>확인</a>
+      <nav class="tool-nav" aria-label="도구"><a href="./versions.html" aria-current="page">지원서 버전 기록</a><a href="./">지원 후 수정 안내</a></nav>
+    </header>
+    <main id="main">
+      <section class="versions-intro" aria-labelledby="page-title">
+        <p class="eyebrow">지원서 버전 기록 · 시험판</p>
+        <h1 id="page-title">지원할 때 쓴 문안,<br /><span>그대로 남겨두세요.</span></h1>
+        <p>공고마다 고친 이력서 문안을 따로 보관하고, 실제 지원한 뒤 그때 사용한 내용을 직접 기록할 수 있습니다. 지원 자체는 채용 사이트에서 해야 합니다.</p>
+      </section>
+      <p class="storage-notice"><strong>이 브라우저에만 저장됩니다.</strong> 계정이나 서버에 문안을 보내지 않습니다. 공용 기기에서는 사용하지 말고, 연락처·주소 등 민감한 정보는 가능하면 넣지 마세요. 브라우저 데이터를 지우거나 기기를 바꾸기 전에는 백업 파일을 내려받으세요. 백업 파일의 내용은 암호화되지 않습니다.</p>
+      <div id="status" class="status-message" role="status" aria-live="polite" hidden></div>
+      <div id="recovery" class="recovery-message" hidden><p>저장된 자료를 읽을 수 없습니다. 원본을 파일로 내려받은 뒤 새로 시작하세요. 정상 백업 파일이 있으면 새로 시작한 다음 가져올 수 있습니다.</p><button id="download-raw" type="button">읽지 못한 자료 내려받기</button><button id="reset-corrupt" type="button">새로 시작</button></div>
+      <div class="version-toolbar">
+        <button id="new-variant" class="solid-button" type="button">새 문안 만들기</button>
+        <div class="file-actions"><button id="export-data" type="button">백업 내려받기</button><button id="import-trigger" type="button">백업 가져오기</button><input id="import-data" type="file" accept=".json,application/json" tabindex="-1" /><button id="clear-data" type="button">모두 삭제</button></div>
+      </div>
+      <div class="version-layout">
+        <section class="version-panel version-list-panel" aria-labelledby="list-title">
+          <div class="panel-heading"><p class="section-label">문안</p><h2 id="list-title">공고별 복사본</h2></div>
+          <div id="variant-list" class="variant-list"></div>
+        </section>
+        <section class="version-panel editor-panel" aria-labelledby="editor-title">
+          <div class="panel-heading"><p class="section-label">작성</p><h2 id="editor-title">문안 편집</h2></div>
+          <div id="editor-empty" class="empty-state"><strong>아직 문안이 없습니다.</strong><p>새 문안을 만들고 이력서에 사용할 글을 붙여 넣으세요.</p></div>
+          <form id="editor-form" hidden>
+            <label for="variant-title">문안 이름 <span>필수</span></label>
+            <input id="variant-title" name="title" maxlength="120" required placeholder="예: 카페 주말 근무용" />
+            <label for="variant-role">직종이나 공고 메모 <span>선택</span></label>
+            <input id="variant-role" name="role" maxlength="120" placeholder="예: 카페 / 주말 오전" />
+            <label for="variant-body">지원에 사용할 문안 <span>필수</span></label>
+            <textarea id="variant-body" name="body" maxlength="50000" required placeholder="이력서 자기소개나 지원 문안을 여기에 붙여 넣으세요."></textarea>
+            <p id="save-state" class="field-hint">아직 저장하지 않았습니다.</p>
+            <div class="editor-actions"><button class="solid-button" type="submit">문안 저장</button><button id="copy-variant" type="button">문안 복사</button><button id="duplicate-variant" type="button">복사본 만들기</button><button id="delete-variant" class="danger-button" type="button">이 문안 삭제</button></div>
+          </form>
+        </section>
+        <section class="version-panel record-panel" aria-labelledby="record-title">
+          <div class="panel-heading"><p class="section-label">지원 후 기록</p><h2 id="record-title">그때 사용한 문안</h2></div>
+          <p class="record-explain">채용 사이트에서 직접 지원한 뒤, 여기에 저장된 문안을 사용했다고 스스로 확인해 기록하세요. 이 도구는 실제 제출 여부나 내용을 자동 확인하지 않습니다.</p>
+          <form id="record-form">
+            <label for="record-label">지원처 또는 별칭</label>
+            <input id="record-label" maxlength="120" required placeholder="예: 동네 카페 A" />
+            <label for="record-date">지원한 날짜</label>
+            <input id="record-date" type="date" required />
+            <button id="save-record" type="submit">현재 저장된 문안 기록</button>
+          </form>
+          <div id="record-list" class="record-list"></div>
+          <div id="record-detail" class="record-detail" hidden></div>
+        </section>
+      </div>
+      <p class="scope-note">문안과 지원 기록은 이용자가 직접 입력한 내용입니다. 알바몬을 포함한 채용 사이트와 제휴하지 않았고, 실제 기업에 전달된 내용을 확인하거나 보증하지 않습니다. 기능과 효용은 현재 시험 중입니다.</p>
+    </main>
+    <footer class="site-footer"><span>지원서.확인</span><a href="./">지원 후 수정 영향 안내</a></footer>
+  </div>
+</body>
+</html>
